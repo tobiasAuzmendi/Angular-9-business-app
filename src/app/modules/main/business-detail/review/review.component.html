@@ -1,0 +1,10 @@
+<div class="d-flex flex-row p-2 py-4 review-content">
+  <div class="p-2 d-flex flex-column align-items-center">
+      <img class="review-image" [src]="review.user.image_url" [alt]="review.user.name">
+      <div class="p-2 ml-2 text-right mr-2"><app-rating [rating]="review.rating"></app-rating></div>
+  </div>
+  <a [href]="review.url" class="p-1 text-secondary review-text"><q>{{review.text}}</q></a>
+  <div class="p-2 d-flex align-items-end">
+      <span class="text-secondary time-created">{{review.time_created|date:'short'}}</span>
+  </div>
+</div>

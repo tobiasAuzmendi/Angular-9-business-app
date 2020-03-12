@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<ng-container *ngIf="businessDetailModel$ | requestStatus | async as businessDetailModel">
+    <ng-template [ngIf]="businessDetailModel.value">
+      <div class="p-4">
+        <div class="shadow-sm rounded card overflow-hidden">
+          <div class="row w-100 m-0 card-header p-0">
+            <div class="p-3 business-image-container">
+              <img [src]="businessDetailModel.value.image_url" [alt]="businessDetailModel.value.name">
+            </div>
+            <h4 class="py-3 mx-2 text-secondary business-name">{{businessDetailModel.value.name}}</h4>
+            <div class="py-3 pr-2 ml-2 text-right mr-2 overflow-hidden"><app-rating [rating]="businessDetailModel.value.rating"></app-rating></div>
+          </div>
+          <div>
+            <h5 class="px-4 pt-4 reviews-title">Reviews</h5>
+            <ng-container *ngFor="let review of businessDetailModel.value.reviews">
+              <app-review [review]="review"></app-review>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template [ngIf]="businessDetailModel.error">
+      <app-error-message [message]="businessDetailModel.error"></app-error-message>
+    </ng-template>
+
+    <ng-template [ngIf]="businessDetailModel.loading">
+      <app-spinner></app-spinner>
+    </ng-template>
+</ng-container>

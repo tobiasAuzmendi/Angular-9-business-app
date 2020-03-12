@@ -1,0 +1,28 @@
+.card {
+  .card-header {
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.125);
+    .business-image-container {
+      border-right: 1px dashed rgba(0, 0, 0, 0.125);
+      img {
+        max-width: 100px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        flex: 1;
+      }
+    }
+    .business-name {
+      flex: 1;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      overflow: hidden;
+      max-height: 4em;
+    }
+  }
+  .reviews-title {
+    color: #0D81C2;
+  }
+}
